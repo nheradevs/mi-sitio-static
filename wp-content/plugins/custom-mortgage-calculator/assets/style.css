@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+    /* Defaults, overridden by inline styles from settings */
+    --cmc-primary: #f39c12;
+    --cmc-secondary: #2c3e50;
+    --cmc-bg: #ffffff;
+    --cmc-text: #333333;
+    --cmc-border-radius: 8px;
+    --cmc-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Force compact width and reset styles to prevent theme conflicts */
+.cmc-calculator-container {
+    background: var(--cmc-bg);
+    padding: 0;
+    border-radius: var(--cmc-border-radius);
+    width: 100%;
+    max-width: 400px !important;
+    /* Force compact width */
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: var(--cmc-shadow);
+    overflow: hidden;
+    line-height: 1.5;
+}
+
+.cmc-calculator-container * {
+    box-sizing: border-box;
+}
+
+/* Header */
+.cmc-header {
+    background-color: var(--cmc-secondary);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.cmc-header::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px 8px 0;
+    border-style: solid;
+    border-color: var(--cmc-secondary) transparent transparent transparent;
+    z-index: 1;
+}
+
+.cmc-header h2 {
+    color: #fff !important;
+    margin: 0 0 5px !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.2 !important;
+}
+
+.cmc-header p {
+    color: rgba(255, 255, 255, 0.8) !important;
+    margin: 0 !important;
+    font-size: 13px !important;
+}
+
+.cmc-form-wrapper {
+    padding: 25px;
+}
+
+/* Form Styles */
+.cmc-form-group {
+    margin-bottom: 20px;
+}
+
+.cmc-form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--cmc-secondary);
+    font-size: 13px;
+}
+
+.cmc-input-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.cmc-currency,
+.cmc-suffix {
+    color: #888;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.cmc-input-group {
+    display: flex;
+    align-items: center;
+    background: #eef2f5;
+    /* Light background for the whole box */
+    border-radius: 6px;
+    padding: 5px 10px;
+    width: 150px;
+    /* Fixed width for the input box */
+    border: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.cmc-input-group:focus-within {
+    border-color: var(--cmc-primary);
+    background: #fff;
+}
+
+.cmc-input-group input {
+    border: none !important;
+    outline: none !important;
+    width: 100% !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: var(--cmc-secondary) !important;
+    text-align: right !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    height: 24px !important;
+    box-shadow: none !important;
+}
+
+.cmc-currency {
+    margin-right: 5px;
+    color: #888;
+    font-weight: 500;
+}
+
+.cmc-suffix {
+    margin-left: 5px;
+    color: #888;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Hide spinners for cleaner look if preferred, or just style them */
+/* Chrome, Safari, Edge, Opera */
+.cmc-input-wrapper input::-webkit-outer-spin-button,
+.cmc-input-wrapper input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+.cmc-input-wrapper input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Slider - Specificity to override theme */
+input[type=range].cmc-slider {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    width: 100% !important;
+    height: 6px !important;
+    /* Fixed small height */
+    background: #e1e1e1;
+    /* Fallback */
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    display: block;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+/* Thumb */
+input[type=range].cmc-slider::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    width: 18px !important;
+    height: 18px !important;
+    background: #fff !important;
+    border: 3px solid var(--cmc-primary) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    margin-top: -6px !important;
+    /* Center on track */
+}
+
+input[type=range].cmc-slider::-moz-range-thumb {
+    width: 18px !important;
+    height: 18px !important;
+    background: #fff !important;
+    border: 3px solid var(--cmc-primary) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+input[type=range].cmc-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+/* Results Grid */
+.cmc-results-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 5px;
+    padding: 0 25px 25px;
+}
+
+.cmc-result-card {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #eee;
+    transition: all 0.3s;
+}
+
+.cmc-result-card:hover {
+    border-color: var(--cmc-primary);
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.cmc-result-card h3 {
+    margin: 0 0 5px !important;
+    color: var(--cmc-secondary);
+    font-size: 15px !important;
+    font-weight: 700 !important;
+}
+
+.cmc-price {
+    color: var(--cmc-primary);
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.cmc-per-month {
+    font-size: 12px;
+    color: #888;
+    font-weight: 500;
+}
+
+.cmc-card-details {
+    margin-bottom: 15px;
+    padding: 8px;
+    background: #fff;
+    border-radius: 6px;
+    border: 1px solid #f0f0f0;
+}
+
+.cmc-detail-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+    font-size: 12px;
+    color: #555;
+}
+
+.cmc-detail-item strong {
+    color: var(--cmc-secondary);
+}
+
+/* CTA Buttons */
+.cmc-cta-btn {
+    display: block;
+    background: var(--cmc-primary) !important;
+    /* Force primary color */
+    color: #fff !important;
+    padding: 10px 15px;
+    border-radius: 4px;
+    text-decoration: none !important;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: opacity 0.2s;
+    border: none;
+}
+
+.cmc-cta-btn:hover {
+    opacity: 0.9;
+    color: #fff !important;
+}

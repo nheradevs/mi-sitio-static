@@ -1,0 +1,34 @@
+@font-face {
+  font-family: 'pylon-shop-icon';
+  src:  url('/wp-content/themes/pylon/assets/css/pylon-shop-icons/fonts/pylon.eot?tcq5ak');
+  src:  url('/wp-content/themes/pylon/assets/css/pylon-shop-icons/fonts/pylon.eot?tcq5ak#iefix') format('embedded-opentype'),
+    url('/wp-content/themes/pylon/assets/css/pylon-shop-icons/fonts/pylon.ttf?tcq5ak') format('truetype'),
+    url('/wp-content/themes/pylon/assets/css/pylon-shop-icons/fonts/pylon.woff?tcq5ak') format('woff'),
+    url('/wp-content/themes/pylon/assets/css/pylon-shop-icons/fonts/pylon.svg?tcq5ak#pylon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="crsine-icon"], [class*=" crsine-icon"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'pylon-shop-icon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.crsine-icon-shopping-cart:before {
+  content: "\e901";
+}
+
+.pylon-icon-heart:before {
+  content: "\e918";
+}
